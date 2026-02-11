@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💌 A Letter for You</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffe6f0, #ffccd5);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      color: #880e4f;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 1em;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    .heart {
+      color: red;
+      font-size: 2em;
+      animation: beat 1s infinite alternate;
+    }
+
+    @keyframes beat {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.3); }
+    }
+
+    #letter {
+      display: none;
+      font-size: 1.5em;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      background: #ff6699;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Valentine's Day! <span class="heart">❤️</span></h1>
+  <button onclick="showLetter()">Open Your Letter</button>
+  <div id="letter">
+    Hallu Hallu My Love!
+Happy Valentines Day❤️! I'm thankful that you became a part of my life and the person I spent my years 
+together,although we are far and had many trials I always look forward on our everyday lives, you make 
+me smile, happy, loved, and appreciated in your own ways. Although some days we drift apart and can't 
+really say what we feel and think of just always know am always here for you and still here for you. 
+Thank you for trying and fighting for me,especially thinking of me, I know the burden on your end is 
+heavy but no matter would it be I will try to lift you and look forward for our everyday, tomorrow and 
+future may come and I am always prepare for what would happen next,I just hope I exist beside you as 
+today and current to ease your pain and worries. You are an amazing and wonderful guy, deep within I 
+see you the good, bad, hurt and kinky one djsjsjd, I love you and that won't change, I hope someday 
+I'll be physically present to you – so I can hug you and wipe your tears or just be there for you when 
+times are tough. Seni Seviyorum Kocacım<3, Sen yanımdayken dünya daha güzel, kalbim seninle dolu, 
+her an seni düşünüyorum.
+  </div>
+
+  <script>
+    function showLetter() {
+      document.getElementById('letter').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
