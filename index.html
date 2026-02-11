@@ -1,124 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💌 A Letter for You</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin:0; padding:0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💌 A Letter for You</title>
 
-    html, body { height: 100%; }
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&display=swap" rel="stylesheet">
 
-    /* Intro Screen */
-    #intro {
-      background: linear-gradient(135deg, #ffd1dc, #ffb285, #ff6b6b); /* pink → orange → red */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      color: white;
-      font-family: 'Pacifico', cursive;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    #intro h1 {
-      font-size: 3em;
-      margin-bottom: 40px;
-      animation: pulse 1.2s infinite alternate;
-    }
+body {
+  height: 100vh;
+}
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05); }
-    }
+/* ===== INTRO SCREEN ===== */
+#intro {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd1dc, #ffb285, #ff6b6b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Pacifico', cursive;
+  color: white;
+  text-align: center;
+}
 
-    .heart {
-      color: red;
-      font-size: 2em;
-      animation: beat 1s infinite alternate;
-    }
+#intro h1 {
+  font-size: 3em;
+  margin-bottom: 40px;
+  animation: pulse 1.2s infinite alternate;
+}
 
-    @keyframes beat {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.3); }
-    }
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
 
-    #intro button {
-      font-family: 'Dancing Script', cursive;
-      background: linear-gradient(135deg, #ffd1dc, #ffb285, #ff6b6b);
-      color: white;
-      padding: 25px 60px;
-      font-size: 1.8em;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+button {
+  font-family: 'Dancing Script', cursive;
+  padding: 25px 60px;
+  font-size: 1.8em;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: #ff4d6d;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
 
-    #intro button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    }
+button:hover {
+  transform: scale(1.1);
+}
 
-    /* Letter Screen */
-    #letterScreen {
-      display: none;
-      background: #fff0f5; /* soft light pink */
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+/* ===== LETTER SCREEN ===== */
+#letterScreen {
+  height: 100vh;
+  background: #fff0f5;
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
 
-    #letterContent {
-      max-width: 800px;
-      width: 100%;
-      text-align: left;
-    }
+#letterCard {
+  max-width: 800px;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 
-    #letterContent p {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.5em;
-      background: rgba(255,255,255,0.8);
-      padding: 30px;
-      border-radius: 20px;
-      color: #880e4f;
-      line-height: 1.6;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      white-space: pre-wrap; /* preserves line breaks exactly */
-    }
+#letterCard p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  line-height: 1.7;
+  color: #880e4f;
+  white-space: pre-wrap; /* THIS preserves your formatting */
+}
 
-    #photoArea {
-      margin-top: 30px;
-      text-align: center;
-    }
+/* Photo area */
+#photoArea {
+  margin-top: 30px;
+  text-align: center;
+}
 
-    #photoArea img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+#photoArea img {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
 
-  </style>
+</style>
 </head>
+
 <body>
 
-  <!-- Intro Screen -->
-  <div id="intro">
-    <h1>My Letter For You! <span class="heart">❤️</span></h1>
-    <button onclick="showLetter()">Open Your Letter 💌</button>
-  </div>
+<!-- INTRO -->
+<div id="intro">
+  <h1>My Letter For You ❤️</h1>
+  <button onclick="showLetter()">Open Your Letter 💌</button>
+</div>
 
-  <!-- Letter Screen -->
-  <div id="letterScreen">
-    <div id="letterContent">
-      <p>
+<!-- LETTER -->
+<div id="letterScreen">
+  <div id="letterCard">
+    <p>
 Hallu Hallu My Love!
 
 Happy Valentines Day! I'm thankful that you became a part of my 
@@ -140,21 +134,20 @@ wipe your tears or just be there for you when times are tough.
 
 Seni Seviyorum Kocacım<3, Sen yanımdayken dünya daha güzel, kalbim seninle dolu, 
 her an seni düşünüyorum.
-      </p>
+    </p>
 
-      <!-- Photo area -->
-      <div id="photoArea">
-        <img src="photo.jpg" alt="Us Together" />
-      </div>
+    <div id="photoArea">
+      <img src="photo.jpg" alt="Us Together">
     </div>
   </div>
+</div>
 
-  <script>
-    function showLetter() {
-      document.getElementById('intro').style.display = 'none';
-      document.getElementById('letterScreen').style.display = 'flex';
-    }
-  </script>
+<script>
+function showLetter() {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("letterScreen").style.display = "flex";
+}
+</script>
 
 </body>
 </html>
