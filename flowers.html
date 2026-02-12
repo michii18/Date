@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You 🌸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #ffd1dc, #ffb285, #ff6b6b);
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: white;
+      margin-bottom: 30px;
+      font-size: 2.3em;
+    }
+
+    /* Gift Box */
+    .box {
+      width: 180px;
+      height: 180px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4em;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .box:hover {
+      transform: scale(1.1);
+    }
+
+    /* Flower container */
+    #flowers {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .flower {
+      position: absolute;
+      font-size: 2em;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Tap The Box 🌷</h1>
+
+  <div class="box" onclick="openBox()">
+    🎁
+  </div>
+
+  <div id="flowers"></div>
+
+  <script>
+    function openBox() {
+      const container = document.getElementById("flowers");
+
+      for (let i = 0; i < 40; i++) {
+        const flower = document.createElement("div");
+        flower.classList.add("flower");
+        flower.innerHTML = "🌸";
+
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+        flower.style.fontSize = (20 + Math.random() * 30) + "px";
+
+        container.appendChild(flower);
+
+        setTimeout(() => {
+          flower.remove();
+        }, 5000);
+      }
+    }
+  </script>
+
+</body>
+</html>
