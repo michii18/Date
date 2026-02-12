@@ -1,114 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For You 🌸</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowers</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd1dc, #ffb285, #ff6b6b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: cursive;
+}
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: linear-gradient(135deg, #ffd1dc, #ffb285, #ff6b6b);
-      font-family: 'Pacifico', cursive;
-      text-align: center;
-      overflow: hidden;
-    }
+h1 {
+  color: white;
+}
 
-    h1 {
-      color: white;
-      margin-bottom: 30px;
-      font-size: 2.3em;
-    }
+.box {
+  width: 160px;
+  height: 160px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  cursor: pointer;
+}
 
-    /* White Gift Box */
-    .box {
-      width: 180px;
-      height: 180px;
-      background: white;
-      border-radius: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 4em;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+.flower {
+  position: absolute;
+  font-size: 30px;
+  animation: rise 4s linear forwards;
+}
 
-    .box:hover {
-      transform: scale(1.1);
-    }
-
-    /* Flower container */
-    #flowers {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .flower {
-      position: absolute;
-      animation: floatUp linear forwards;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      15% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+@keyframes rise {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-20vh); opacity: 0; }
+}
+</style>
 </head>
 
 <body>
 
-  <h1>Tap The Box 🌷</h1>
+<h1>Tap The Box 🌸</h1>
 
-  <div class="box" onclick="openBox()">
-    🎁
-  </div>
+<div class="box" onclick="openBox()">🎁</div>
 
-  <div id="flowers"></div>
-
-  <script>
-    function openBox() {
-      const container = document.getElementById("flowers");
-      const flowerTypes = ["🌸", "🌷", "🌹", "💐"];
-
-      for (let i = 0; i < 50; i++) {
-        const flower = document.createElement("div");
-        flower.classList.add("flower");
-
-        flower.innerHTML = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
-
-        flower.style.left = Math.random() * 100 + "vw";
-        flower.style.fontSize = (20 + Math.random() * 30) + "px";
-        flower.style.animationDuration = (3 + Math.random() * 3) + "s";
-
-        container.appendChild(flower);
-
-        setTimeout(() => {
-          flower.remove();
-        }, 5000);
-      }
-    }
-  </script>
+<script>
+function openBox() {
+  for (let i = 0; i < 30; i++) {
+    let f = document.createElement("div");
+    f.className = "flower";
+    f.innerHTML = ["🌸","🌷","🌹","💐"][Math.floor(Math.random()*4)];
+    f.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(f);
+    setTimeout(() => f.remove(), 4000);
+  }
+}
+</script>
 
 </body>
 </html>
