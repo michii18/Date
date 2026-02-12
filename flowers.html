@@ -26,19 +26,19 @@
       font-size: 2.3em;
     }
 
-    /* Gift Box */
+    /* White Gift Box */
     .box {
       width: 180px;
       height: 180px;
-      background: #ffffff;
-      border-radius: 20px;
+      background: white;
+      border-radius: 25px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 4em;
       cursor: pointer;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
 
     .box:hover {
@@ -57,16 +57,15 @@
 
     .flower {
       position: absolute;
-      font-size: 2em;
-      animation: float 5s linear infinite;
+      animation: floatUp linear forwards;
     }
 
-    @keyframes float {
+    @keyframes floatUp {
       0% {
         transform: translateY(100vh) rotate(0deg);
         opacity: 0;
       }
-      20% {
+      15% {
         opacity: 1;
       }
       100% {
@@ -90,15 +89,17 @@
   <script>
     function openBox() {
       const container = document.getElementById("flowers");
+      const flowerTypes = ["🌸", "🌷", "🌹", "💐"];
 
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < 50; i++) {
         const flower = document.createElement("div");
         flower.classList.add("flower");
-        flower.innerHTML = "🌸";
+
+        flower.innerHTML = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
 
         flower.style.left = Math.random() * 100 + "vw";
-        flower.style.animationDuration = (3 + Math.random() * 3) + "s";
         flower.style.fontSize = (20 + Math.random() * 30) + "px";
+        flower.style.animationDuration = (3 + Math.random() * 3) + "s";
 
         container.appendChild(flower);
 
